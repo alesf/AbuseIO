@@ -102,6 +102,7 @@ return [
         'en' => ['English', 'gb'],
         'nl' => ['Nederlands', 'nl'],
         'gr' => ['Ελληνικά', 'gr'],
+        'sl' => ['Slovenščina', 'si'],
     ],
 
     /*
