@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 Route::model('incidents', 'AbuseIO\Models\Incident', function () {
     throw new \Illuminate\Database\Eloquent\ModelNotFoundException();
 });

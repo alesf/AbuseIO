@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 Route::model('accounts', 'AbuseIO\Models\Account', function () {
     throw new \Illuminate\Database\Eloquent\ModelNotFoundException();
 });
@@ -23,7 +25,7 @@ Route::group(
         );
 
         // Access to index list
-        route::get(
+        Route::get(
             '',
             [
                 'middleware' => 'permission:accounts_view',
@@ -33,7 +35,7 @@ Route::group(
         );
 
         // Access to show object
-        route::get(
+        Route::get(
             '{accounts}',
             [
                 'middleware' => 'permission:accounts_view',
@@ -43,7 +45,7 @@ Route::group(
         );
 
         // Access to export object
-        route::get(
+        Route::get(
             'export/{format}',
             [
                 'middleware' => 'permission:accounts_export',
@@ -53,7 +55,7 @@ Route::group(
         );
 
         // Access to create object
-        route::get(
+        Route::get(
             'create',
             [
                 'middleware' => 'permission:accounts_create',
@@ -61,7 +63,7 @@ Route::group(
                 'uses'       => 'AccountsController@create',
             ]
         );
-        route::post(
+        Route::post(
             '',
             [
                 'middleware' => 'permission:accounts_create',
@@ -71,7 +73,7 @@ Route::group(
         );
 
         // Access to disable object
-        route::get(
+        Route::get(
             '{accounts}/disable',
             [
                 'middleware' => 'permission:accounts_disable',
@@ -81,7 +83,7 @@ Route::group(
         );
 
         // Access to enable object
-        route::get(
+        Route::get(
             '{accounts}/enable',
             [
                 'middleware' => 'permission:accounts_enable',
@@ -91,7 +93,7 @@ Route::group(
         );
 
         // Access to edit object
-        route::get(
+        Route::get(
             '{accounts}/edit',
             [
                 'middleware' => 'permission:accounts_edit',
@@ -99,7 +101,7 @@ Route::group(
                 'uses'       => 'AccountsController@edit',
             ]
         );
-        route::patch(
+        Route::patch(
             '{accounts}',
             [
                 'middleware' => 'permission:accounts_edit',
@@ -107,7 +109,7 @@ Route::group(
                 'uses'       => 'AccountsController@update',
             ]
         );
-        route::put(
+        Route::put(
             '{accounts}',
             [
                 'middleware' => 'permission:accounts_edit',
@@ -117,7 +119,7 @@ Route::group(
         );
 
         // Access to delete object
-        route::delete(
+        Route::delete(
             '/{accounts}',
             [
                 'middleware' => 'permission:accounts_delete',

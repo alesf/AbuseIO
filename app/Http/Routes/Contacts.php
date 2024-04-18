@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 Route::resource('contacts', 'ContactsController');
 
 Route::model('contacts', 'AbuseIO\Models\Contact', function () {
@@ -23,7 +25,7 @@ Route::group(
         );
 
         // Access to index list
-        route::get(
+        Route::get(
             '',
             [
                 'middleware' => 'permission:contacts_view',
@@ -33,7 +35,7 @@ Route::group(
         );
 
         // Access to show object
-        route::get(
+        Route::get(
             '{contacts}',
             [
                 'middleware' => 'permission:contacts_view',
@@ -43,7 +45,7 @@ Route::group(
         );
 
         // Access to export object
-        route::get(
+        Route::get(
             'export/{format}',
             [
                 'middleware' => 'permission:contacts_export',
@@ -53,7 +55,7 @@ Route::group(
         );
 
         // Access to create object
-        route::get(
+        Route::get(
             'create',
             [
                 'middleware' => 'permission:contacts_create',
@@ -61,7 +63,7 @@ Route::group(
                 'uses'       => 'ContactsController@create',
             ]
         );
-        route::post(
+        Route::post(
             '',
             [
                 'middleware' => 'permission:contacts_create',
@@ -71,7 +73,7 @@ Route::group(
         );
 
         // Access to edit object
-        route::get(
+        Route::get(
             '{contacts}/edit',
             [
                 'middleware' => 'permission:contacts_edit',
@@ -79,7 +81,7 @@ Route::group(
                 'uses'       => 'ContactsController@edit',
             ]
         );
-        route::patch(
+        Route::patch(
             '{contacts}',
             [
                 'middleware' => 'permission:contacts_edit',
@@ -87,7 +89,7 @@ Route::group(
                 'uses'       => 'ContactsController@update',
             ]
         );
-        route::put(
+        Route::put(
             '{contacts}',
             [
                 'middleware' => 'permission:contacts_edit',
@@ -97,7 +99,7 @@ Route::group(
         );
 
         // Access to delete object
-        route::delete(
+        Route::delete(
             '{contacts}',
             [
                 'middleware' => 'permission:contacts_delete',

@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 Route::resource('gdpr', 'GdprController');
 
 Route::group(
@@ -9,7 +11,7 @@ Route::group(
     ],
     function () {
         // Access to edit object
-        route::post(
+        Route::post(
             '{contacts}',
             [
                 'middleware' => 'permission:contacts_edit',

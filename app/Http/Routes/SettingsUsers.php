@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 Route::model('users', 'AbuseIO\Models\User', function () {
     throw new \Illuminate\Database\Eloquent\ModelNotFoundException('User Not Found.');
 });
@@ -23,7 +25,7 @@ Route::group(
         );
 
         // Access to index list
-        route::get(
+        Route::get(
             '',
             [
                 'middleware' => 'permission:users_view',
@@ -33,7 +35,7 @@ Route::group(
         );
 
         // Access to show object
-        route::get(
+        Route::get(
             '{users}',
             [
                 'middleware' => 'permission:users_view',
@@ -43,7 +45,7 @@ Route::group(
         );
 
         // Access to export object
-        route::get(
+        Route::get(
             'export/{format}',
             [
                 'middleware' => 'permission:users_export',
@@ -53,7 +55,7 @@ Route::group(
         );
 
         // Access to create object
-        route::get(
+        Route::get(
             'create',
             [
                 'middleware' => 'permission:users_create',
@@ -61,7 +63,7 @@ Route::group(
                 'uses'       => 'UsersController@create',
             ]
         );
-        route::post(
+        Route::post(
             '',
             [
                 'middleware' => 'permission:users_create',
@@ -71,7 +73,7 @@ Route::group(
         );
 
         // Access to disable object
-        route::get(
+        Route::get(
             '{users}/disable',
             [
                 'middleware' => 'permission:users_disable',
@@ -81,7 +83,7 @@ Route::group(
         );
 
         // Access to enable object
-        route::get(
+        Route::get(
             '{users}/enable',
             [
                 'middleware' => 'permission:users_enable',
@@ -91,7 +93,7 @@ Route::group(
         );
 
         // Access to edit object
-        route::get(
+        Route::get(
             '{users}/edit',
             [
                 'middleware' => 'permission:users_edit',
@@ -99,7 +101,7 @@ Route::group(
                 'uses'       => 'UsersController@edit',
             ]
         );
-        route::patch(
+        Route::patch(
             '{users}',
             [
                 'middleware' => 'permission:users_edit',
@@ -107,7 +109,7 @@ Route::group(
                 'uses'       => 'UsersController@update',
             ]
         );
-        route::put(
+        Route::put(
             '{users}',
             [
                 'middleware' => 'permission:users_edit',
@@ -117,7 +119,7 @@ Route::group(
         );
 
         // Access to delete object
-        route::delete(
+        Route::delete(
             '/{users}',
             [
                 'middleware' => 'permission:users_delete',

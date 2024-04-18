@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 Route::resource('profile', 'ProfileController');
 
 Route::group(
@@ -9,7 +11,7 @@ Route::group(
     ],
     function () {
         // Access to index list
-        route::get(
+        Route::get(
             '',
             [
                 'middleware' => 'permission:profile_manage',
@@ -19,7 +21,7 @@ Route::group(
         );
 
         // Access to edit object
-        route::patch(
+        Route::patch(
             '{profile}',
             [
                 'middleware' => 'permission:profile_manage',
@@ -27,7 +29,7 @@ Route::group(
                 'uses'       => 'ProfileController@update',
             ]
         );
-        route::put(
+        Route::put(
             '{profile}',
             [
                 'middleware' => 'permission:profile_manage',

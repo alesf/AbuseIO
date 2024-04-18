@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 Route::resource('evidence', 'EvidenceController');
 Route::model('evidence', 'AbuseIO\Models\Evidence', function () {
     throw new \Illuminate\Database\Eloquent\ModelNotFoundException();

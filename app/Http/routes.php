@@ -1,5 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Route;
+
 Route::group(
     [
         'prefix' => 'auth',
@@ -30,7 +33,7 @@ Route::get(
  */
 Route::group(
     [
-        'prefix'     => 'admin',
+        'prefix' => 'admin',
         'middleware' => [
             'auth',
             'permission:login_portal',
@@ -70,37 +73,37 @@ Route::group(
         );
 
         // Contacts
-        require app_path().'/Http/Routes/Contacts.php';
+        require app_path() . '/Http/Routes/Contacts.php';
 
         // Netblocks
-        require app_path().'/Http/Routes/Netblocks.php';
+        require app_path() . '/Http/Routes/Netblocks.php';
 
         // Domains
-        require app_path().'/Http/Routes/Domains.php';
+        require app_path() . '/Http/Routes/Domains.php';
 
         // Tickets
-        require app_path().'/Http/Routes/Tickets.php';
+        require app_path() . '/Http/Routes/Tickets.php';
 
         // Incidents
-        require app_path().'/Http/Routes/Incidents.php';
+        require app_path() . '/Http/Routes/Incidents.php';
 
         // Evidence
-        require app_path().'/Http/Routes/Evidence.php';
+        require app_path() . '/Http/Routes/Evidence.php';
 
         // Notes
-        require app_path().'/Http/Routes/Notes.php';
+        require app_path() . '/Http/Routes/Notes.php';
 
         // Analytics
-        require app_path().'/Http/Routes/Analytics.php';
+        require app_path() . '/Http/Routes/Analytics.php';
 
         // GDPR
-        require app_path().'/Http/Routes/Gdpr.php';
+        require app_path() . '/Http/Routes/Gdpr.php';
 
         // Settings related
-        require app_path().'/Http/Routes/SettingsAccounts.php';
-        require app_path().'/Http/Routes/SettingsBrands.php';
-        require app_path().'/Http/Routes/SettingsUsers.php';
-        require app_path().'/Http/Routes/Profile.php';
+        require app_path() . '/Http/Routes/SettingsAccounts.php';
+        require app_path() . '/Http/Routes/SettingsBrands.php';
+        require app_path() . '/Http/Routes/SettingsUsers.php';
+        require app_path() . '/Http/Routes/Profile.php';
     }
 );
 
@@ -190,16 +193,16 @@ Route::group(
                 // Analytics
                 //require app_path().'/Api/Routes/Analytics.php';
 
-                require app_path().'/Api/Routes/Accounts.php';
-                require app_path().'/Api/Routes/Brands.php';
-                require app_path().'/Api/Routes/Contacts.php';
-                require app_path().'/Api/Routes/Domains.php';
-                require app_path().'/Api/Routes/Netblocks.php';
-                require app_path().'/Api/Routes/Notes.php';
-                require app_path().'/Api/Routes/Tickets.php';
-                require app_path().'/Api/Routes/Users.php';
-                require app_path().'/Api/Routes/Incidents.php';
-                require app_path().'/Api/Routes/Gdpr.php';
+                require app_path() . '/Api/Routes/Accounts.php';
+                require app_path() . '/Api/Routes/Brands.php';
+                require app_path() . '/Api/Routes/Contacts.php';
+                require app_path() . '/Api/Routes/Domains.php';
+                require app_path() . '/Api/Routes/Netblocks.php';
+                require app_path() . '/Api/Routes/Notes.php';
+                require app_path() . '/Api/Routes/Tickets.php';
+                require app_path() . '/Api/Routes/Users.php';
+                require app_path() . '/Api/Routes/Incidents.php';
+                require app_path() . '/Api/Routes/Gdpr.php';
             }
         );
     }

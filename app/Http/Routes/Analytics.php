@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 Route::group(
     [
         'prefix' => 'analytics',
@@ -7,7 +9,7 @@ Route::group(
     ],
     function () {
         // Access to index list
-        route::get(
+        Route::get(
             '',
             [
                 'middleware' => 'permission:analytics_view',
@@ -15,7 +17,7 @@ Route::group(
                 'uses'       => 'AnalyticsController@index',
             ]
         );
-        route::get(
+        Route::get(
             'graph',
             [
                 'middleware' => 'permission:analytics_view',

@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 Route::resource('netblocks', 'NetblocksController');
 
 Route::model('netblocks', 'AbuseIO\Models\Netblock', function () {
@@ -23,7 +25,7 @@ Route::group(
         );
 
         // Access to index list
-        route::get(
+        Route::get(
             '',
             [
                 'middleware' => 'permission:netblocks_view',
@@ -33,7 +35,7 @@ Route::group(
         );
 
         // Access to show object
-        route::get(
+        Route::get(
             '{netblocks}',
             [
                 'middleware' => 'permission:netblocks_view',
@@ -43,7 +45,7 @@ Route::group(
         );
 
         // Access to export object
-        route::get(
+        Route::get(
             'export/{format}',
             [
                 'middleware' => 'permission:netblocks_export',
@@ -53,7 +55,7 @@ Route::group(
         );
 
         // Access to create object
-        route::get(
+        Route::get(
             'create',
             [
                 'middleware' => 'permission:netblocks_create',
@@ -61,7 +63,7 @@ Route::group(
                 'uses'       => 'NetblocksController@create',
             ]
         );
-        route::post(
+        Route::post(
             '',
             [
                 'middleware' => 'permission:netblocks_create',
@@ -71,7 +73,7 @@ Route::group(
         );
 
         // Access to edit object
-        route::get(
+        Route::get(
             '{netblocks}/edit',
             [
                 'middleware' => 'permission:netblocks_edit',
@@ -79,7 +81,7 @@ Route::group(
                 'uses'       => 'NetblocksController@edit',
             ]
         );
-        route::patch(
+        Route::patch(
             '{netblocks}',
             [
                 'middleware' => 'permission:netblocks_edit',
@@ -87,7 +89,7 @@ Route::group(
                 'uses'       => 'NetblocksController@update',
             ]
         );
-        route::put(
+        Route::put(
             '{netblocks}',
             [
                 'middleware' => 'permission:netblocks_edit',
@@ -97,7 +99,7 @@ Route::group(
         );
 
         // Access to delete object
-        route::delete(
+        Route::delete(
             '/{netblocks}',
             [
                 'middleware' => 'permission:netblocks_delete',

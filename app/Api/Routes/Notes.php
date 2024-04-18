@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 Route::group(
     [
         'prefix'     => 'notes',
@@ -8,7 +10,7 @@ Route::group(
     ],
     function () {
         // Access to index list
-        route::get(
+        Route::get(
             '',
             [
                 'as'   => 'index',
@@ -17,7 +19,7 @@ Route::group(
         );
 
         // Access to show object
-        route::get(
+        Route::get(
             '{notes}',
             [
                 'as'   => 'show',
@@ -41,12 +43,12 @@ Route::group(
             ]
         );
         //
-//        Route::put(
-//            '{notes}',
-//            [
-//                'as'   => 'update',
-//                'uses' => 'NotesController@apiUpdate',
-//            ]
-//        );
+        //        Route::put(
+        //            '{notes}',
+        //            [
+        //                'as'   => 'update',
+        //                'uses' => 'NotesController@apiUpdate',
+        //            ]
+        //        );
     }
 );

@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 Route::resource('notes', 'NotesController');
 
 Route::model('notes', 'AbuseIO\Models\Note', function () {
@@ -13,7 +15,7 @@ Route::group(
     ],
     function () {
         // Access to index list
-        route::get(
+        Route::get(
             '',
             [
                 'middleware' => 'permission:notes_view',
@@ -23,7 +25,7 @@ Route::group(
         );
 
         // Access to show object
-        route::get(
+        Route::get(
             '{notes}',
             [
                 'middleware' => 'permission:notes_view',
@@ -33,7 +35,7 @@ Route::group(
         );
 
         // Access to create object
-        route::get(
+        Route::get(
             'create',
             [
                 'middleware' => 'permission:notes_create',
@@ -41,7 +43,7 @@ Route::group(
                 'uses'       => 'NotesController@create',
             ]
         );
-        route::post(
+        Route::post(
             '',
             [
                 'middleware' => ['permission:notes_create', 'appendnotesubmitter'],
@@ -51,7 +53,7 @@ Route::group(
         );
 
         // Access to edit object
-        route::get(
+        Route::get(
             '{notes}/edit',
             [
                 'middleware' => 'permission:notes_edit',
@@ -59,7 +61,7 @@ Route::group(
                 'uses'       => 'NotesController@edit',
             ]
         );
-        route::patch(
+        Route::patch(
             '{notes}',
             [
                 'middleware' => ['permission:notes_edit', 'appendnotesubmitter'],
@@ -67,7 +69,7 @@ Route::group(
                 'uses'       => 'NotesController@update',
             ]
         );
-        route::put(
+        Route::put(
             '{notes}',
             [
                 'middleware' => ['permission:notes_edit', 'appendnotesubmitter'],
@@ -77,7 +79,7 @@ Route::group(
         );
 
         // Access to delete object
-        route::delete(
+        Route::delete(
             '/{notes}',
             [
                 'middleware' => 'permission:notes_delete',

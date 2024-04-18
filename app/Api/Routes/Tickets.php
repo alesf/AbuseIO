@@ -1,12 +1,14 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 Route::group(
     [
         'prefix' => 'tickets',
         'as'     => 'tickets.',
     ],
     function () {
-        route::get(
+        Route::get(
             '',
             [
                 'as'         => 'index',

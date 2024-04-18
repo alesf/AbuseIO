@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 Route::resource('domains', 'DomainsController');
 Route::model('domains', 'AbuseIO\Models\Domain', function () {
     throw new \Illuminate\Database\Eloquent\ModelNotFoundException();
@@ -22,7 +24,7 @@ Route::group(
         );
 
         // Access to index list
-        route::get(
+        Route::get(
             '',
             [
                 'middleware' => 'permission:domains_view',
@@ -32,7 +34,7 @@ Route::group(
         );
 
         // Access to show object
-        route::get(
+        Route::get(
             '{domains}',
             [
                 'middleware' => 'permission:domains_view',
@@ -42,7 +44,7 @@ Route::group(
         );
 
         // Access to export object
-        route::get(
+        Route::get(
             'export/{format}',
             [
                 'middleware' => 'permission:domains_export',
@@ -52,7 +54,7 @@ Route::group(
         );
 
         // Access to create object
-        route::get(
+        Route::get(
             'create',
             [
                 'middleware' => 'permission:domains_create',
@@ -60,7 +62,7 @@ Route::group(
                 'uses'       => 'DomainsController@create',
             ]
         );
-        route::post(
+        Route::post(
             '',
             [
                 'middleware' => 'permission:domains_create',
@@ -70,7 +72,7 @@ Route::group(
         );
 
         // Access to edit object
-        route::get(
+        Route::get(
             '{domains}/edit',
             [
                 'middleware' => 'permission:domains_edit',
@@ -78,7 +80,7 @@ Route::group(
                 'uses'       => 'DomainsController@edit',
             ]
         );
-        route::patch(
+        Route::patch(
             '{domains}',
             [
                 'middleware' => 'permission:domains_edit',
@@ -86,7 +88,7 @@ Route::group(
                 'uses'       => 'DomainsController@update',
             ]
         );
-        route::put(
+        Route::put(
             '{domains}',
             [
                 'middleware' => 'permission:domains_edit',
@@ -96,7 +98,7 @@ Route::group(
         );
 
         // Access to delete object
-        route::delete(
+        Route::delete(
             '/{domains}',
             [
                 'middleware' => 'permission:domains_delete',

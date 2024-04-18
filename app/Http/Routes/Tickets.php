@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 Route::model('tickets', 'AbuseIO\Models\Ticket', function () {
     throw new \Illuminate\Database\Eloquent\ModelNotFoundException();
 });
@@ -111,7 +113,7 @@ Route::group(
         /*
         | Delete ticket
         */
-        route::delete(
+        Route::delete(
             '/{tickets}',
             [
                 'middleware' => 'permission:tickets_delete',

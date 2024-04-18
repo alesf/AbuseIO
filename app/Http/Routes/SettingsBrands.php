@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 Route::model('brands', 'AbuseIO\Models\Brand', function () {
     throw new \Illuminate\Database\Eloquent\ModelNotFoundException('Brand Not Found.');
 });
@@ -22,7 +24,7 @@ Route::group(
         );
 
         // Access to index list
-        route::get(
+        Route::get(
             '',
             [
                 'middleware' => 'permission:brands_view',
@@ -32,7 +34,7 @@ Route::group(
         );
 
         // Access to show object
-        route::get(
+        Route::get(
             '{brands}',
             [
                 'middleware' => 'permission:brands_view',
@@ -42,7 +44,7 @@ Route::group(
         );
 
         // Access to export object
-        route::get(
+        Route::get(
             'export/{format}',
             [
                 'middleware' => 'permission:brands_export',
@@ -52,7 +54,7 @@ Route::group(
         );
 
         // Access to create object
-        route::get(
+        Route::get(
             'create',
             [
                 'middleware' => 'permission:brands_create',
@@ -60,7 +62,7 @@ Route::group(
                 'uses'       => 'BrandsController@create',
             ]
         );
-        route::post(
+        Route::post(
             '',
             [
                 'middleware' => 'permission:brands_create',
@@ -70,7 +72,7 @@ Route::group(
         );
 
         // Access to edit object
-        route::get(
+        Route::get(
             '{brands}/edit',
             [
                 'middleware' => 'permission:brands_edit',
@@ -79,7 +81,7 @@ Route::group(
             ]
         );
         // Access to activate object
-        route::get(
+        Route::get(
             '{brands}/activate',
             [
                 'middleware' => 'permission:brands_edit',
@@ -87,7 +89,7 @@ Route::group(
                 'uses'       => 'BrandsController@activate',
             ]
         );
-        route::patch(
+        Route::patch(
             '{brands}',
             [
                 'middleware' => 'permission:brands_edit',
@@ -95,7 +97,7 @@ Route::group(
                 'uses'       => 'BrandsController@update',
             ]
         );
-        route::put(
+        Route::put(
             '{brands}',
             [
                 'middleware' => 'permission:brands_edit',
@@ -105,7 +107,7 @@ Route::group(
         );
 
         // Access to delete object
-        route::delete(
+        Route::delete(
             '/{brands}',
             [
                 'middleware' => 'permission:brands_delete',
