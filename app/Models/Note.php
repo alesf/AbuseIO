@@ -75,7 +75,7 @@ class Note extends Model
     {
         $rules = [
             'ticket_id' => 'required|integer|exists:tickets,id',
-            'submitter' => 'required|string',
+            'submitter' => 'sometimes|required|string',
             'hidden'    => 'sometimes|boolean',
             'viewed'    => 'sometimes|boolean',
         ];
@@ -144,7 +144,6 @@ class Note extends Model
 
         $ticket = self::find($model_id)->ticket;
 
-        return  ($ticket->accountIp->is($account))
-            || ($ticket->domainIp->is($account));
+        return ($ticket->accountIp->is($account)) || ($ticket->domainIp->is($account));
     }
 }
