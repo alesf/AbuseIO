@@ -15,15 +15,15 @@ class DeleteCommandTest extends TestCase
         //TODO make brand table seeder;
         $this->assertTrue(true);
         //        $exitCode = Artisan::call('brand:delete', [
-//            "--id" => "1"
-//        ]);
-//
-//        $this->assertEquals($exitCode, 0);
-//        $this->assertStringContainsString("The brand has been deleted from the system", Artisan::output());
-//        /**
-//         * I use the seeder to re-initialize the table because Artisan:call is another instance of DB
-//         */
-//        $this->seed('BrandTableSeeder');
+        //            "--id" => "1"
+        //        ]);
+        //
+        //        $this->assertEquals($exitCode, 0);
+        //        $this->assertStringContainsString("The brand has been deleted from the system", Artisan::output());
+        //        /**
+        //         * I use the seeder to re-initialize the table because Artisan:call is another instance of DB
+        //         */
+        //        $this->seed('BrandTableSeeder');
     }
 
     public function testInvalidId()

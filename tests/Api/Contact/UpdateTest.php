@@ -12,7 +12,7 @@ class UpdateTest extends TestCase
     use DatabaseTransactions;
     use UpdateTestHelper;
 
-    const URL = '/api/v1/contacts/';
+    public const URL = '/api/v1/contacts/';
 
     public function testEmptyUpdate()
     {

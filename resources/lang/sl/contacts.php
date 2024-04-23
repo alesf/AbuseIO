@@ -9,11 +9,11 @@ return [
 
     'csv_export'              => 'Izvoz CSV',
     'no_contacts'             => 'Še nimate nobenih stikov.',
-    'reference'               => 'Reference',
+    'reference'               => 'Referenca',
     'api_host'                => 'API URL',
     'notification'            => 'Obvestilo',
     'details_for'             => 'Podrobnosti stika za',
-    'linked_netblocks'        => 'Povezani Netblocks',
+    'linked_netblocks'        => 'Povezana IP območja',
     'linked_domains'          => 'Povezane domene',
     'netblock_id'             => 'Netblock Id',
     'domain_id'               => 'Domain Id',

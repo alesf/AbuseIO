@@ -4,9 +4,9 @@ namespace AbuseIO\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Log;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 use PhpMimeMailParser\Parser as MimeParser;
-use Storage;
 
 /**
  * Class Evidence.
@@ -39,6 +39,11 @@ class Evidence extends Model
         'filename',
         'sender',
         'subject',
+    ];
+
+    protected $appends = [
+        'data',
+        'eml'
     ];
 
     /*
@@ -126,8 +131,8 @@ class Evidence extends Model
                 if (!$tempFilesystem->exists($cacheDir)) {
                     if (!$tempFilesystem->makeDirectory($cacheDir)) {
                         Log::error(
-                            get_class($this).': '.
-                            'Unable to create temp directory: '.$cacheDir
+                            get_class($this) . ': ' .
+                                'Unable to create temp directory: ' . $cacheDir
                         );
                     }
                 }

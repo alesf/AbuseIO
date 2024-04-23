@@ -3,7 +3,6 @@
 namespace AbuseIO\Models;
 
 use AbuseIO\Http\Requests\ContactFormRequest;
-use Config;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -85,7 +84,7 @@ class Contact extends Model
     public static function updateRules($contact)
     {
         $rules = [
-            'reference'  => 'required|string|unique:contacts,reference,'.$contact->id,
+            'reference'  => 'required|string|unique:contacts,reference,' . $contact->id,
             'name'       => 'required',
             'email'      => 'sometimes|emails',
             'api_host'   => 'sometimes|url',
@@ -292,13 +291,13 @@ class Contact extends Model
     public function anonymize($randomness)
     {
         // retrieve settings
-        $entropy = Config::get('app.key').$randomness;
-        $anonymize_domain = Config::get('main.gdpr_anonymize_domain');
+        $entropy = config('app.key') . $randomness;
+        $anonymize_domain = config('main.gdpr_anonymize_domain');
 
         // hash personal data and save it
-        $this->reference = md5($entropy.$this->reference);
-        $this->name = md5($entropy.$this->name);
-        $this->email = md5($entropy.$this->email).'@'.$anonymize_domain;
+        $this->reference = md5($entropy . $this->reference);
+        $this->name = md5($entropy . $this->name);
+        $this->email = md5($entropy . $this->email) . '@' . $anonymize_domain;
         $this->api_host = '';
         $this->save();
 

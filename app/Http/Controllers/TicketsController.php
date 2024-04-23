@@ -54,17 +54,17 @@ class TicketsController extends Controller
         $order = $request->input('order');
 
         if (is_array($columns)) {
-            foreach (
-                [
+            foreach ([
                     'ticket_type_filter'           => 3,
                     'ticket_classification_filter' => 4,
                     'ticket_status_filter'         => 7,
-                ] as $filter => $column
-            ) {
+                ] as $filter => $column) {
                 // save the type filter option in the user
-                if (array_key_exists($column, $columns) &&
+                if (
+                    array_key_exists($column, $columns) &&
                     array_key_exists('search', $columns[$column]) &&
-                    array_key_exists('value', $columns[$column]['search'])) {
+                    array_key_exists('value', $columns[$column]['search'])
+                ) {
                     $auth_user->setOption($filter, $columns[$column]['search']['value']);
                 }
             }
@@ -128,11 +128,11 @@ class TicketsController extends Controller
 
                     $join->on('notes.ticket_id', '=', 'tickets.id')
                         ->on('notes.viewed', '=', DB::raw("'false'"));
-//                        ->nest(
-//                            function ($join) {
-//                                $join->on('notes.viewed', '=', DB::raw("'false'"));
-//                            }
-//                        );
+                    // ->nest(
+                    //     function ($join) {
+                    //         $join->on('notes.viewed', '=', DB::raw("'false'"));
+                    //     }
+                    // );
                 }
             )
             ->where('notes.deleted_at', '=', null)
@@ -154,9 +154,9 @@ class TicketsController extends Controller
             ->addColumn(
                 'actions',
                 function ($ticket) {
-                    $actions = ' <a href="tickets/'.$ticket->id.
-                        '" class="btn btn-xs btn-primary"><span class="glyphicon glyphicon-eye-open"></span> '.
-                        trans('misc.button.show').'</a> ';
+                    $actions = ' <a href="tickets/' . $ticket->id .
+                        '" class="btn btn-xs btn-primary"><span class="glyphicon glyphicon-eye-open"></span> ' .
+                        trans('misc.button.show') . '</a> ';
 
                     return $actions;
                 }
@@ -164,19 +164,19 @@ class TicketsController extends Controller
             ->editColumn(
                 'type_id',
                 function ($ticket) {
-                    return trans('types.type.'.$ticket->type_id.'.name');
+                    return trans('types.type.' . $ticket->type_id . '.name');
                 }
             )
             ->editColumn(
                 'class_id',
                 function ($ticket) {
-                    return trans('classifications.'.$ticket->class_id.'.name');
+                    return trans('classifications.' . $ticket->class_id . '.name');
                 }
             )
             ->editColumn(
                 'status_id',
                 function ($ticket) {
-                    return trans('types.status.abusedesk.'.$ticket->status_id.'.name');
+                    return trans('types.status.abusedesk.' . $ticket->status_id . '.name');
                 }
             )
             ->rawColumns(['actions'])
@@ -406,7 +406,7 @@ class TicketsController extends Controller
                 'status_id'   => 'Ticket Status',
             ];
 
-            $output = '"'.implode('", "', $columns).'"'.PHP_EOL;
+            $output = '"' . implode('", "', $columns) . '"' . PHP_EOL;
 
             foreach ($tickets as $ticket) {
                 $row = [
@@ -420,7 +420,7 @@ class TicketsController extends Controller
                     trans("types.status.abusedesk.{$ticket->status_id}.name"),
                 ];
 
-                $output .= '"'.implode('", "', $row).'"'.PHP_EOL;
+                $output .= '"' . implode('", "', $row) . '"' . PHP_EOL;
             }
 
             return response(substr($output, 0, -1), 200)

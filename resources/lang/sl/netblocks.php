@@ -1,16 +1,16 @@
 <?php
 
 return [
-    'header.new'    => 'Nov IP obseg',
-    'header.edit'   => 'Uredi IP obseg',
-    'header.detail' => 'Podrobnosti IP obsega za',
+    'header.new'    => 'Nov IP območja',
+    'header.edit'   => 'Uredi IP območja',
+    'header.detail' => 'Podrobnosti IP območja za',
 
-    'button.new_netblock' => 'Nov IP obseg',
+    'button.new_netblock' => 'Novo IP območje',
 
-    'msg.added'   => 'IP obseg je bil ustvarjen.',
-    'msg.updated' => 'IP obseg je bil posodobljen.',
-    'msg.deleted' => 'IP obseg je bil izbrisan.',
-    'no_netblocks' => 'Nimate nobenih IP obsegov',
+    'msg.added'   => 'IP območje je bilo ustvarjeno.',
+    'msg.updated' => 'IP območjo je bilo posodobljeno.',
+    'msg.deleted' => 'IP območjo je bilo izbrisano.',
+    'no_netblocks' => 'Nimate nobenih IP območij',
     'first_ip'     => 'Prvi IP',
     'last_ip'      => 'Zadnji IP',
 ];

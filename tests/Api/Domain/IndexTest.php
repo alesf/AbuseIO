@@ -10,7 +10,7 @@ class IndexTest extends TestCase
 {
     use IndexTestHelper;
 
-    const URL = '/api/v1/domains';
+    public const URL = '/api/v1/domains';
 
     protected function truncateTables()
     {

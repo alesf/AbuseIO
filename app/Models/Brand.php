@@ -98,7 +98,7 @@ class Brand extends Model
     public static function updateRules($brand)
     {
         $rules = [
-            'name'                => 'required|unique:brands,name,'.$brand->id,
+            'name'                => 'required|unique:brands,name,' . $brand->id,
             'company_name'        => 'required',
             'introduction_text'   => 'required',
             'creator_id'          => 'required|integer|exists:accounts,id',

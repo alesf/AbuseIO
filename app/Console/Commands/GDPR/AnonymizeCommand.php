@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by IntelliJ IDEA.
  * User: jover
@@ -42,28 +43,28 @@ class AnonymizeCommand extends Command
             $tickets = Ticket::withTrashed()->where('ip_contact_email', '=', $email)->get();
             $tickets = $tickets->merge(Ticket::withTrashed()->where('domain_contact_email', '=', $email)->get());
 
-            $this->info('Found '.$contacts->count().' Contacts and '.$tickets->count().' Tickets for '.$email);
+            $this->info('Found ' . $contacts->count() . ' Contacts and ' . $tickets->count() . ' Tickets for ' . $email);
 
             $this->info('Contacts:');
             foreach ($contacts as $contact) {
                 if ($confirm) {
-                    $this->info("\t- Anonymizing Contact ".$contact->id);
+                    $this->info("\t- Anonymizing Contact " . $contact->id);
                     $contact->anonymize($randomness);
                 } else {
-                    $this->info("\t- Skipping Contact ".$contact->id.' (Dry run)');
+                    $this->info("\t- Skipping Contact " . $contact->id . ' (Dry run)');
                 }
             }
             $this->info('Tickets:');
             foreach ($tickets as $ticket) {
                 if ($confirm) {
-                    $this->info("\t- Anonymizing Ticket ".$ticket->id);
+                    $this->info("\t- Anonymizing Ticket " . $ticket->id);
                     $ticket->anonymize($email, $randomness);
                 } else {
-                    $this->info("\t- Skipping Ticket ".$ticket->id.' (Dry run)');
+                    $this->info("\t- Skipping Ticket " . $ticket->id . ' (Dry run)');
                 }
             }
         } catch (\Exception $e) {
-            $this->error('Error: '.$e->getMessage());
+            $this->error('Error: ' . $e->getMessage());
         }
     }
 }

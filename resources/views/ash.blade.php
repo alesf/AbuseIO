@@ -16,11 +16,11 @@
         <div class="jumbotron">
             <div class="media">
                 <div class="media-left">
-                    <img class="img-responsive img-inline" src="/ash/logo/{{ $brand->id }}" alt='{{ $brand->company_name }}' />
+                    <img class="img-responsive ash-logo" src="/ash/logo/{{ $brand->id }}" alt='{{ $brand->company_name }}' />
                 </div>
                 <div class="media-body">
-                    <h1>{{ trans('ash.title') }}</h1>
                     <h2>{{ $brand->company_name }}</h2>
+                    <h1>{{ trans('ash.title') }}</h1>
                 </div>
             </div>
         </div>

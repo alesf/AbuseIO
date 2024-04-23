@@ -10,7 +10,7 @@ class StoreTest extends TestCase
 {
     use StoreTestHelper;
 
-    const URL = '/api/v1/accounts';
+    public const URL = '/api/v1/accounts';
 
     public function testValidationErrors()
     {

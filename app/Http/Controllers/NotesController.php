@@ -8,8 +8,8 @@ use AbuseIO\Models\Note;
 use AbuseIO\Traits\Api;
 use AbuseIO\Transformers\NoteTransformer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use League\Fractal\Manager;
-use Redirect;
 
 /**
  * Class NotesController.

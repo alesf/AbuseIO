@@ -35,7 +35,7 @@
         });
 
         $('#brands-table').DataTable({
-            processing: true,
+            // processing: true,
             serverSide: true,
             sort: false,
             ajax: '{!! route('admin.brands.search') .'/query/' !!}',

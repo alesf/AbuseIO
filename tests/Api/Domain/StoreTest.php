@@ -12,7 +12,7 @@ class StoreTest extends TestCase
     use StoreTestHelper;
     use DatabaseTransactions;
 
-    const URL = '/api/v1/domains';
+    public const URL = '/api/v1/domains';
 
     public function testValidationErrors()
     {

@@ -4,10 +4,10 @@
  * Translations for AbuseIO Self Help (ash).
  */
 return [
-    'title' => 'AbuseIO Zelfhulp',
-    'intro' => 'U krijgt deze pagina te zien omdat we verdachte activiteiten hebben'.
-                                       ' waargenomen vanaf uw IP adres, domeinnaam of e-mail adres. Op deze'.
-                                       ' pagina vind u alle informatie over deze activiteiten en het probleem.',
+    'title' => 'Portal voor abuse',
+    'intro' => 'U krijgt deze pagina te zien omdat we verdachte activiteiten hebben' .
+        ' waargenomen vanaf uw IP adres, domeinnaam of e-mail adres. Op deze' .
+        ' pagina vind u alle informatie over deze activiteiten en het probleem.',
     'ticket' => ' Ticket',
 
     'menu' => [

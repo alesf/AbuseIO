@@ -13,9 +13,9 @@ use Log;
  */
 class CheckAccount
 {
-    const WEB_ID_SEGMENT = 3;
+    public const WEB_ID_SEGMENT = 3;
 
-    const API_ID_SEGMENT = 4;
+    public const API_ID_SEGMENT = 4;
 
     private $model_id;
 

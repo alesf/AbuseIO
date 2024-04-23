@@ -11,18 +11,18 @@ use tests\TestCase;
  */
 class CreateCommandTest extends TestCase
 {
-//    public function testWithoutArguments()
-//    {
+    //    public function testWithoutArguments()
+    //    {
     //Artisan::call('brand:create');
     // $output = Artisan::output();
 
     // $this->assertStringContainsString("brand:create", $output);
 
-//        $this->assertStringContainsString('The name field is required.', $output);
-//        $this->assertStringContainsString('The company name field is required.', $output);
-//        $this->assertStringContainsString('The introduction text field is required.', $output);
-//        $this->assertStringContainsString('Failed to create the brand due to validation warnings', $output);
-//    }
+    //        $this->assertStringContainsString('The name field is required.', $output);
+    //        $this->assertStringContainsString('The company name field is required.', $output);
+    //        $this->assertStringContainsString('The introduction text field is required.', $output);
+    //        $this->assertStringContainsString('Failed to create the brand due to validation warnings', $output);
+    //    }
 
     public function testCreateValid()
     {

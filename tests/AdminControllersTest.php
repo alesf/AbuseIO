@@ -10,7 +10,7 @@ class AdminControllersTest extends TestCase
      * This is required else it would generate:
      *  Fatal error:  Maximum function nesting level of '100' reached, aborting
      */
-//    use WithoutMiddleware;
+    //    use WithoutMiddleware;
 
     /**
      * @return void

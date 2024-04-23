@@ -49,15 +49,15 @@ class ListCommandTest extends TestCase
     }
 
     //    public function testNotFoundFilter()
-//    {
-//        $exitCode = Artisan::call(
-//            'collector:list',
-//            [
-//                '--filter' => 'xxx',
-//            ]
-//        );
-//
-//        $this->assertEquals($exitCode, 0);
-//        //$this->assertStringContainsString('No matching collector was found', Artisan::output());
-//    }
+    //    {
+    //        $exitCode = Artisan::call(
+    //            'collector:list',
+    //            [
+    //                '--filter' => 'xxx',
+    //            ]
+    //        );
+    //
+    //        $this->assertEquals($exitCode, 0);
+    //        //$this->assertStringContainsString('No matching collector was found', Artisan::output());
+    //    }
 }

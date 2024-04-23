@@ -15,14 +15,14 @@ class CreateCommandTest extends TestCase
 {
     use DatabaseTransactions;
 
-//    public function testWithoutArguments()
-//    {
-//        //        Artisan::call('user:create');
+    //    public function testWithoutArguments()
+    //    {
+    //        //        Artisan::call('user:create');
     ////        $output = Artisan::output();
     ////
     ////        $this->assertStringContainsString('The first name field is required.', $output);
     ////        $this->assertStringContainsString('Failed to create the user due to validation warnings', $output);
-//    }
+    //    }
 
     public function testCreateValid()
     {

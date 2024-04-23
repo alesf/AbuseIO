@@ -14,7 +14,7 @@ class DropJobsQueueReservedAtIndex extends Migration
     public function up()
     {
         Schema::table('jobs', function (Blueprint $table) {
-//            $table->dropIndex('jobs_queue_reserved_reserved_at_index'); -- not present in abuseIO
+            //            $table->dropIndex('jobs_queue_reserved_reserved_at_index'); -- not present in abuseIO
             $table->dropColumn('reserved');
             $table->index(['queue', 'reserved_at']);
         });

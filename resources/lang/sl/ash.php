@@ -1,9 +1,10 @@
 <?php
 
-// slovenian translation
-
+/**
+ * Translations for AbuseIO Self Help (ash).
+ */
 return [
-    'title' => 'AbuseIO Samopomoč',
+    'title' => 'Portal za zlorabe',
     'intro' => 'Ta stran je prikazana, ker smo zaznali sumljive dejavnosti' .
         ' iz vašega IP naslova, domene ali e-poštnega naslova. Na tej strani boste' .
         ' našli vse informacije o teh dejavnostih in osnovni' .
@@ -54,7 +55,7 @@ return [
         'submit'                => 'Pošlji',
         'reply'                 => 'Odgovor',
         'download'              => 'Prenesi',
-        'view'                  => 'Pogled',
+        'view'                  => 'Ogled',
         'closed'                => 'Ne morete dodati opomb na to prijavo, ker je bila zaprta ali opombe onemogočene',
         'unchanged'             => 'Ne spreminjajte statusa prijave',
         'open'                  => 'Pustite status prijave odprt',

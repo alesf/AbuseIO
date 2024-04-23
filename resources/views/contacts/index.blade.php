@@ -32,7 +32,7 @@
         });
 
         $('#contacts-table').DataTable({
-            processing: true,
+            // processing: true,
             serverSide: true,
             ajax: '{!! route('admin.contacts.search') .'/query/' !!}',
             columnDefs: [ {

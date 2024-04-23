@@ -6,16 +6,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 	    <meta name="csrf-token" content="{{ csrf_token() }}">
 		<title>{{ Config::get('app.name') }}</title>
-		<!-- Bootstrap core css -->
 		<link rel="stylesheet" type="text/css" href="{{ asset('/css/bootstrap.min.css') }}"/>
-
-		<!-- dataTables css for bootstrap -->
 		<link rel="stylesheet" type="text/css" href="{{ asset('/css/dataTables.bootstrap.min.css') }}"/>
-
-		<!-- Localization flags -->
 		<link rel="stylesheet" type="text/css" href="{{ asset('/css/flag-icon-min.css') }}">
-
-		<!-- Custom css -->
 		<link rel="stylesheet" type="text/css" href="{{ asset('/css/custom.css') }}">
 	</head>
 	<body>

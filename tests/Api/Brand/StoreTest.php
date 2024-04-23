@@ -10,7 +10,7 @@ class StoreTest extends TestCase
 {
     use StoreTestHelper;
 
-    const URL = '/api/v1/brands';
+    public const URL = '/api/v1/brands';
 
     public function testMethodNotAllowedReturns500()
     {

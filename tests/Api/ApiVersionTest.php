@@ -6,7 +6,7 @@ use tests\TestCase;
 
 class ApiVersionTest extends TestCase
 {
-    const URL = '/api/getversioninfo';
+    public const URL = '/api/getversioninfo';
     protected $statusCode;
     protected $content;
 
