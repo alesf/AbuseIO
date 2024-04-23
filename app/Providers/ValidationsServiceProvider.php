@@ -3,11 +3,12 @@
 namespace AbuseIO\Providers;
 
 use Illuminate\Database\QueryException;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Lang;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
-use Lang;
-use Log;
 use Symfony\Component\Process\PhpExecutableFinder;
-use Validator;
 
 /**
  * Extends the default laravel validations.
@@ -41,7 +42,7 @@ class ValidationsServiceProvider extends ServiceProvider
                 $check = (is_int($value) ? $value : intval($value));
 
                 return ($check <= PHP_INT_MAX)
-                && ($check >= ~PHP_INT_MAX);
+                    && ($check >= ~PHP_INT_MAX);
             }
         );
 
@@ -151,18 +152,19 @@ class ValidationsServiceProvider extends ServiceProvider
                 if (is_bool($value)) {
                     return true;
                 }
+                // TODO: add domain validator (FQDN)
                 /*
                  * changed implentation of getDomain to some form of isValidDomain;
                  */
-//                $url = 'http://'.$value;
-//
-//                $domain = getDomain($url);
-//
-//                if ($value !== $domain) {
-//                    return false;
-//                }
-//
-//                return true;
+                //                $url = 'http://'.$value;
+                //
+                //                $domain = getDomain($url);
+                //
+                //                if ($value !== $domain) {
+                //                    return false;
+                //                }
+                //
+                //                return true;
                 return getDomain($value);
             }
         );
@@ -179,7 +181,7 @@ class ValidationsServiceProvider extends ServiceProvider
                 }
 
                 if (!filter_var(
-                    'http://test.for.var.com'.$value,
+                    'http://test.for.var.com' . $value,
                     FILTER_VALIDATE_URL
                 ) === false) {
                     return true;
@@ -216,7 +218,7 @@ class ValidationsServiceProvider extends ServiceProvider
                     $field = $parameters[1];
 
                     // create the query
-                    $query = \DB::table($table)->where($field, true);
+                    $query = DB::table($table)->where($field, true);
 
                     // are we in an update (id is set)
                     if (array_key_exists('id', $data)) {
@@ -264,8 +266,8 @@ class ValidationsServiceProvider extends ServiceProvider
                 $viewPath = $view->getPath();
                 $engine = $view->getEngine();
                 $compiler = $engine->getCompiler();
-                $compiler->compile($viewPath);
-                $compiledPath = escapeshellarg($compiler->getCompiledPath($viewPath));
+                $compiler->compile($view);
+                $compiledPath = escapeshellarg($compiler->getCompiledPath($view));
 
                 // check php syntax of the compiled file
                 // runkit_lint_file() is preferred, but we can fallback on exec() calling php -l
@@ -276,7 +278,7 @@ class ValidationsServiceProvider extends ServiceProvider
                         'no runkit pecl extension installed, falling back to exec() to check the php syntax'
                     );
                     $phpfinder = new PhpExecutableFinder();
-                    $command = $phpfinder->find()." -l $compiledPath";
+                    $command = $phpfinder->find() . " -l $compiledPath";
                     $output = exec($command);
                     if (strstr($output, 'No syntax errors detected') !== false) {
                         $result = true;

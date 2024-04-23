@@ -94,3 +94,15 @@ pre.prettyprint {
     margin-bottom: 0;
     padding: 9.5px;
 }
+
+.ash .media-left {
+    vertical-align: middle;
+}
+
+.ash-logo {
+    min-width: 100px;
+}
+
+.ash h1 {
+    margin-top: 0;
+}

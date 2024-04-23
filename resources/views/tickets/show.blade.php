@@ -200,20 +200,20 @@
                                     @if (is_array($l2value))
                                         @foreach ($l2value as $l3field=>$l3value)
                                             @if (is_array($l3value))
-                                                <dt>{{ ucfirst($l1field) . ' ' . ucfirst($l2field) . ' ' . ucfirst($l3field)}}</dt>
+                                                <dt>{{ Str::upper($l1field) . ' ' . Str::upper($l2field) . ' ' . Str::upper($l3field)}}</dt>
                                                 <dd>{{ trans('tickets.fourth_layer_filter') }}</dd>
                                             @else
-                                                <dt>{{ ucfirst($l1field) . ' ' . ucfirst($l2field) . ' ' . ucfirst($l3field)}}</dt>
+                                                <dt>{{ Str::upper($l1field) . ' ' . Str::upper($l2field) . ' ' . Str::upper($l3field)}}</dt>
                                                 <dd>{{ htmlentities($l3value) }}</dd>
                                             @endif
                                         @endforeach
                                     @else
-                                        <dt>{{ ucfirst($l1field) . ' ' . ucfirst($l2field) }}</dt>
+                                        <dt>{{ Str::upper($l1field) . ' ' . Str::upper($l2field) }}</dt>
                                         <dd>{{ htmlentities($l2value) }}</dd>
                                     @endif
                                 @endforeach
                             @else
-                                <dt>{{ ucfirst($l1field) }}</dt>
+                                <dt>{{ Str::upper($l1field) }}</dt>
                                 <dd>{{ htmlentities($l1value) }}</dd>
                             @endif
                         @endforeach
@@ -221,10 +221,13 @@
                     </dl>
                 </td>
                 <td>
-                    @if ($event->evidence)
-                    {!! link_to_route('admin.evidence.download', trans('ash.communication.download'), [$event->evidence->id]) !!}
-                    -
-                    {!! link_to_route('admin.evidence.show', trans('ash.communication.view'), [$event->evidence->id]) !!}
+                    @if ($event->evidence->data)
+                    <a href="{{ route('admin.evidence.download', [$event->evidence->id]) }}" class="btn btn-xs btn-info">
+                        {{ trans('ash.communication.download') }}
+                    </a>
+                    <a href="{{ route('admin.evidence.show', [$event->evidence->id]) }}" class="btn btn-xs btn-info">
+                        {{ trans('ash.communication.view') }}
+                    </a>
                     @else
                         {{ trans('misc.notavailable') }}
                     @endif

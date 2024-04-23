@@ -8,7 +8,7 @@
         {!! link_to(URL::previous(), trans('misc.button.back'), ['class' => 'btn btn-default']) !!}
     </div>
 </div>
-@if(is_object($evidence))
+@if(is_object($evidence->data))
 <dl class="dl-horizontal">
     @foreach (['from', 'subject'] as $header)
         @if(!empty($evidence->data['headers'][$header]))

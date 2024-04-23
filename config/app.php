@@ -13,7 +13,7 @@ return [
    */
     'env' => env('APP_ENV', 'production'),
 
-    'name'    => 'AbuseIO',
+    'name'    => env('APP_NAME', 'AbuseIO'),
     'version' => '4.3.0',
 
     /*
@@ -82,7 +82,7 @@ return [
     // 'date_format' => 'c',
     // or use this for more human readable:
     // 'date_format' => 'd-m-Y H:i:s P',
-    'date_format' => env('APP_DATE_FORMAT', 'c'),
+    'date_format' => env('APP_DATE_FORMAT', 'd.m.Y H:i:s P'),
 
     /*
     |--------------------------------------------------------------------------
